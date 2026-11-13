@@ -1,7 +1,9 @@
 <!-- POST "lists/42/bookmarks" -->
-
-<%= simple_form_for([@list, @bookmark]) do |f| %>
-  <%= f.input :comment %>
-  <%= f.association :movie %>
-  <%= f.submit "Add a movie", class: "btn btn-warning" %>
-<% end %>
+<div class="container">
+  <h1>Add a move to <%= @list.name %></h1>
+  <%= simple_form_for([@list, @bookmark]) do |f| %>
+    <%= f.input :comment %>
+    <%= f.association :movie %>
+    <%= f.submit "Add a movie", class: "btn btn-warning" %>
+  <% end %>
+</div>
