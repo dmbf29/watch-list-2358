@@ -4,11 +4,23 @@
     <p>Share your lists with your friends</p>
   </div>
 </div>
-
-<div class="container">
-  <% @lists.each do |list| %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-      <%= list.name %>
-    </div>
-  <% end %>
+<div class="container mt-3 mb-b">
+  <div class="d-flex align-items-center">
+    <h3>Lists</h3>
+    <%= link_to new_list_path, class: 'ms-2 btn btn-info' do  %>
+      <i class="fa-solid fa-plus"></i>
+    <% end %>
+  </div>
+  <div class="cards my-3">
+    <% if @lists.any? %>
+      <% @lists.each do |list| %>
+        <div class="card-category position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+          <%= list.name %>
+          <%= link_to '', list_path(list), class: 'position-absolute top-0 bottom-0 w-100'  %>
+        </div>
+      <% end %>
+    <% else %>
+      <p>No lists yet.</p>
+    <% end %>
+  </div>
 </div>
